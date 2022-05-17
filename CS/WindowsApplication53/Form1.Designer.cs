@@ -29,6 +29,11 @@ namespace WindowsApplication53
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraPivotGrid.DataSourceColumnBinding dataSourceColumnBinding1 = new DevExpress.XtraPivotGrid.DataSourceColumnBinding();
+            DevExpress.XtraPivotGrid.DataSourceColumnBinding dataSourceColumnBinding2 = new DevExpress.XtraPivotGrid.DataSourceColumnBinding();
+            DevExpress.XtraPivotGrid.DataSourceColumnBinding dataSourceColumnBinding3 = new DevExpress.XtraPivotGrid.DataSourceColumnBinding();
+            DevExpress.XtraPivotGrid.DataSourceColumnBinding dataSourceColumnBinding4 = new DevExpress.XtraPivotGrid.DataSourceColumnBinding();
+            DevExpress.XtraPivotGrid.DataSourceColumnBinding dataSourceColumnBinding5 = new DevExpress.XtraPivotGrid.DataSourceColumnBinding();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pivotGridControl1 = new DevExpress.XtraPivotGrid.PivotGridControl();
             this.dataSet1 = new System.Data.DataSet();
@@ -36,19 +41,19 @@ namespace WindowsApplication53
             this.dataColumn1 = new System.Data.DataColumn();
             this.dataColumn2 = new System.Data.DataColumn();
             this.dataColumn3 = new System.Data.DataColumn();
-            this.fieldName = new DevExpress.XtraPivotGrid.PivotGridField();
-            this.fieldDate = new DevExpress.XtraPivotGrid.PivotGridField();
-            this.fieldValue = new DevExpress.XtraPivotGrid.PivotGridField();
-            this.fieldValue2 = new DevExpress.XtraPivotGrid.PivotGridField();
-            this.fieldDate1 = new DevExpress.XtraPivotGrid.PivotGridField();
-            this.repositoryItemImageComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
+            this.fieldName1 = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldDate2 = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldValue1 = new DevExpress.XtraPivotGrid.PivotGridField();
             this.repositoryItemImageComboBox2 = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
+            this.fieldValue = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.repositoryItemImageComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
+            this.fieldDate = new DevExpress.XtraPivotGrid.PivotGridField();
             this.imageCollection1 = new DevExpress.Utils.ImageCollection(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pivotGridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageComboBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,13 +64,14 @@ namespace WindowsApplication53
             this.pivotGridControl1.DataSource = this.dataSet1;
             this.pivotGridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pivotGridControl1.Fields.AddRange(new DevExpress.XtraPivotGrid.PivotGridField[] {
-            this.fieldName,
-            this.fieldDate,
+            this.fieldName1,
+            this.fieldDate2,
+            this.fieldValue1,
             this.fieldValue,
-            this.fieldValue2,
-            this.fieldDate1});
+            this.fieldDate});
             this.pivotGridControl1.Location = new System.Drawing.Point(0, 0);
             this.pivotGridControl1.Name = "pivotGridControl1";
+            this.pivotGridControl1.OptionsData.DataProcessingEngine = DevExpress.XtraPivotGrid.PivotDataProcessingEngine.Optimized;
             this.pivotGridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemImageComboBox1,
             this.repositoryItemImageComboBox2});
@@ -100,57 +106,58 @@ namespace WindowsApplication53
             this.dataColumn3.ColumnName = "Value";
             this.dataColumn3.DataType = typeof(int);
             // 
-            // fieldName
+            // fieldName1
             // 
-            this.fieldName.Area = DevExpress.XtraPivotGrid.PivotArea.RowArea;
-            this.fieldName.AreaIndex = 0;
-            this.fieldName.FieldName = "Name";
-            this.fieldName.Name = "fieldName";
-            this.fieldName.RowValueLineCount = 3;
+            this.fieldName1.Area = DevExpress.XtraPivotGrid.PivotArea.RowArea;
+            this.fieldName1.AreaIndex = 0;
+            dataSourceColumnBinding1.ColumnName = "Name";
+            this.fieldName1.DataBinding = dataSourceColumnBinding1;
+            this.fieldName1.Name = "fieldName1";
+            this.fieldName1.RowValueLineCount = 3;
             // 
-            // fieldDate
+            // fieldDate2
             // 
-            this.fieldDate.Area = DevExpress.XtraPivotGrid.PivotArea.ColumnArea;
-            this.fieldDate.AreaIndex = 0;
-            this.fieldDate.Caption = "Year";
-            this.fieldDate.FieldName = "Date";
-            this.fieldDate.GroupInterval = DevExpress.XtraPivotGrid.PivotGroupInterval.DateYear;
-            this.fieldDate.Name = "fieldDate";
-            this.fieldDate.UnboundFieldName = "fieldDate";
+            this.fieldDate2.Area = DevExpress.XtraPivotGrid.PivotArea.ColumnArea;
+            this.fieldDate2.AreaIndex = 0;
+            this.fieldDate2.Caption = "Year";
+            dataSourceColumnBinding2.ColumnName = "Date";
+            dataSourceColumnBinding2.GroupInterval = DevExpress.XtraPivotGrid.PivotGroupInterval.DateYear;
+            this.fieldDate2.DataBinding = dataSourceColumnBinding2;
+            this.fieldDate2.Name = "fieldDate2";
+            // 
+            // fieldValue1
+            // 
+            this.fieldValue1.Area = DevExpress.XtraPivotGrid.PivotArea.DataArea;
+            this.fieldValue1.AreaIndex = 0;
+            this.fieldValue1.Caption = "Image+Text";
+            dataSourceColumnBinding3.ColumnName = "Value";
+            this.fieldValue1.DataBinding = dataSourceColumnBinding3;
+            this.fieldValue1.FieldEdit = this.repositoryItemImageComboBox2;
+            this.fieldValue1.Name = "fieldValue1";
+            this.fieldValue1.Options.AllowEdit = false;
+            this.fieldValue1.Options.ShowButtonMode = DevExpress.XtraPivotGrid.PivotShowButtonModeEnum.ShowOnlyInEditor;
+            // 
+            // repositoryItemImageComboBox2
+            // 
+            this.repositoryItemImageComboBox2.AutoHeight = false;
+            this.repositoryItemImageComboBox2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.repositoryItemImageComboBox2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemImageComboBox2.DisplayFormat.FormatString = "c";
+            this.repositoryItemImageComboBox2.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.repositoryItemImageComboBox2.Name = "repositoryItemImageComboBox2";
             // 
             // fieldValue
             // 
             this.fieldValue.Area = DevExpress.XtraPivotGrid.PivotArea.DataArea;
-            this.fieldValue.AreaIndex = 0;
-            this.fieldValue.Caption = "Image+Text";
-            this.fieldValue.FieldEdit = this.repositoryItemImageComboBox2;
-            this.fieldValue.FieldName = "Value";
+            this.fieldValue.AreaIndex = 1;
+            this.fieldValue.Caption = "Image";
+            dataSourceColumnBinding4.ColumnName = "Value";
+            this.fieldValue.DataBinding = dataSourceColumnBinding4;
+            this.fieldValue.FieldEdit = this.repositoryItemImageComboBox1;
             this.fieldValue.Name = "fieldValue";
             this.fieldValue.Options.AllowEdit = false;
             this.fieldValue.Options.ShowButtonMode = DevExpress.XtraPivotGrid.PivotShowButtonModeEnum.ShowOnlyInEditor;
-            this.fieldValue.SummaryType = DevExpress.Data.PivotGrid.PivotSummaryType.Max;
-            // 
-            // fieldValue2
-            // 
-            this.fieldValue2.Area = DevExpress.XtraPivotGrid.PivotArea.DataArea;
-            this.fieldValue2.AreaIndex = 1;
-            this.fieldValue2.Caption = "Image";
-            this.fieldValue2.FieldEdit = this.repositoryItemImageComboBox1;
-            this.fieldValue2.FieldName = "Value";
-            this.fieldValue2.Name = "fieldValue2";
-            this.fieldValue2.Options.AllowEdit = false;
-            this.fieldValue2.Options.ShowButtonMode = DevExpress.XtraPivotGrid.PivotShowButtonModeEnum.ShowOnlyInEditor;
-            this.fieldValue2.SummaryType = DevExpress.Data.PivotGrid.PivotSummaryType.Max;
-            // 
-            // fieldDate1
-            // 
-            this.fieldDate1.Area = DevExpress.XtraPivotGrid.PivotArea.ColumnArea;
-            this.fieldDate1.AreaIndex = 1;
-            this.fieldDate1.Caption = "Date";
-            this.fieldDate1.FieldName = "Date";
-            this.fieldDate1.GroupInterval = DevExpress.XtraPivotGrid.PivotGroupInterval.Date;
-            this.fieldDate1.Name = "fieldDate1";
-            this.fieldDate1.UnboundFieldName = "fieldDate1";
             // 
             // repositoryItemImageComboBox1
             // 
@@ -162,15 +169,15 @@ namespace WindowsApplication53
             this.repositoryItemImageComboBox1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.repositoryItemImageComboBox1.Name = "repositoryItemImageComboBox1";
             // 
-            // repositoryItemImageComboBox2
+            // fieldDate
             // 
-            this.repositoryItemImageComboBox2.AutoHeight = false;
-            this.repositoryItemImageComboBox2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.repositoryItemImageComboBox2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemImageComboBox2.DisplayFormat.FormatString = "c";
-            this.repositoryItemImageComboBox2.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.repositoryItemImageComboBox2.Name = "repositoryItemImageComboBox2";
+            this.fieldDate.Area = DevExpress.XtraPivotGrid.PivotArea.ColumnArea;
+            this.fieldDate.AreaIndex = 1;
+            this.fieldDate.Caption = "Date";
+            dataSourceColumnBinding5.ColumnName = "Date";
+            dataSourceColumnBinding5.GroupInterval = DevExpress.XtraPivotGrid.PivotGroupInterval.Date;
+            this.fieldDate.DataBinding = dataSourceColumnBinding5;
+            this.fieldDate.Name = "fieldDate";
             // 
             // imageCollection1
             // 
@@ -194,8 +201,8 @@ namespace WindowsApplication53
             ((System.ComponentModel.ISupportInitialize)(this.pivotGridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageComboBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageComboBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageComboBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).EndInit();
             this.ResumeLayout(false);
 
@@ -209,11 +216,11 @@ namespace WindowsApplication53
         private System.Data.DataColumn dataColumn1;
         private System.Data.DataColumn dataColumn2;
         private System.Data.DataColumn dataColumn3;
-        private DevExpress.XtraPivotGrid.PivotGridField fieldName;
-        private DevExpress.XtraPivotGrid.PivotGridField fieldDate;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldName1;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldDate2;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldValue1;
         private DevExpress.XtraPivotGrid.PivotGridField fieldValue;
-        private DevExpress.XtraPivotGrid.PivotGridField fieldValue2;
-        private DevExpress.XtraPivotGrid.PivotGridField fieldDate1;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldDate;
         private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox repositoryItemImageComboBox2;
         private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox repositoryItemImageComboBox1;
         private DevExpress.Utils.ImageCollection imageCollection1;
